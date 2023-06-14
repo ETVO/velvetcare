@@ -1,0 +1,30 @@
+$primary: #00887F;
+$dark: #000;
+$light: #fff;
+$secondary: #444;
+
+$line-height-base: 1.25;
+$line-height-sm: 1.25;
+$line-height-lg: 1.5;
+
+$headings-font-weight: 700;
+$headings-color: $dark;
+
+$body-bg: $light;
+$body-color: $dark;
+$link-color: $dark;
+
+$input-bg: white;
+$input-focus-bg: white;
+
+$btn-font-weight: 500;
+
+$carousel-transition-duration: .8s;
+
+$headings-font-family: 'Montserrat', serif !default;
+$font-family-base: 'Montserrat';
+
+@import "~bootstrap/scss/bootstrap";
+
+
+$lead-font-size: $font-size-base * 1.25;

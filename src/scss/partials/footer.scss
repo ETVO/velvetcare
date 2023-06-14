@@ -1,0 +1,115 @@
+$spacing: 3rem;
+
+footer {
+    background-color: #222;
+    color: white;
+    padding: $spacing*1.5 0 $spacing;
+
+    .logo {
+        margin-bottom: $spacing;
+        img {
+            width: 275px;
+        }
+    }
+
+    .row {
+        margin-bottom: $spacing;
+    }
+
+    .contacts {
+        .contact {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .icon {
+                font-size: 1.1rem;
+                margin-right: .75rem;
+            }
+
+            .text {
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+
+            .obs {
+                margin-top: 0.25rem;
+                font-weight: 300;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    .socials {
+        margin-bottom: 1.75rem;
+        .social {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .action {
+        .caption {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            b {
+                font-weight: 500;
+            }
+        }
+        .btn-primary {
+            font-size: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0.35rem 0.75rem;
+            margin-left: 1rem;
+
+            font-size: 1.5rem;
+            font-weight: 700;
+
+            .icon {
+                margin-right: 0.75rem;
+            }
+        }
+    }
+
+    .info {
+        display: flex;
+        .reclama {
+            margin-right: $spacing;
+
+            img {
+                height: 55px;
+            }
+        }
+        .seg-social {
+            display: inline-flex;
+            align-items: center;
+
+            img {
+                margin-right: 1rem;
+                height: 60px;
+            }
+
+            .text {
+                font-weight: 300;
+                font-size: .9rem;
+                b {
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
