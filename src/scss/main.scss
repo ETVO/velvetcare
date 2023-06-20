@@ -1,7 +1,148 @@
-@import "./partials/header.scss";
-@import "./partials/footer.scss";
+@import "./partials/header";
+@import "./partials/footer";
+@import "./partials/hero";
+@import "./partials/services";
+@import "./partials/local";
+@import "./partials/quem";
+@import "./partials/contacto";
 
+*::selection {
+    background-color: rgba(#00615A, .75);
+    color: white;
+}
 
 .btn-primary {
     color: white !important;
+}
+
+a:not(.btn) {
+    transition: opacity 0.1s;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.container {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+
+    &.default {
+        @media all and (min-width: 1200px) {
+            max-width: 1000px;
+        }
+        @media all and (min-width: 1400px) {
+            max-width: 1220px;
+        }
+    }
+}
+
+.side-title {
+    position: relative;
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    margin-left: -5px;
+
+    border: solid 3px #2da29a;
+    border-left-width: 8px;
+    border-radius: 0 5px 5px 0;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 0;
+
+        color: #2da29a;
+    }
+}
+
+.center-title {
+    .icon {
+        color: white;
+        font-size: 2.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .wrap-title {
+        border: solid 3px white;
+        border-top-width: 8px;
+        border-radius: 0 0 5px 5px;
+        display: inline-block;
+        padding: 0.75rem 1rem 0.75rem 1.25rem;
+        box-sizing: border-box;
+        margin: 0 auto;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 0;
+
+            color: white;
+        }
+    }
+}
+
+.fibonacci-double {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 70px;
+    margin: -1px 0;
+    background-color: white;
+}
+
+.center-section {
+    padding: 3rem 0 3.5rem;
+    background-color: #2da29a;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+
+    .wrap {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+        .content {
+            margin-top: 1.75rem;
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1;
+
+            @media all and (max-width: 576px) {
+                font-size: 1rem;
+            }
+
+            b {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#spinner {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+    opacity: 0.75;
 }

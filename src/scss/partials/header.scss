@@ -26,6 +26,8 @@ header {
 
         .navbar-collapse {
             text-align: center;
+            background-color: white;
+            z-index: 999999;
             .navbar-nav {
                 .nav-link {
                     font-weight: 500;
@@ -34,7 +36,8 @@ header {
                     transition: color 0.1s, text-shadow .2s;
 
                     &:hover {
-                        color: var(--bs-primary);
+                        opacity: 1;
+                        color: #2da29a;
                     }
 
                     &:active {
@@ -60,7 +63,9 @@ header {
             }
         }
     }
+    
 }
+
 
 @media all and (max-width: 992px) {
     header nav {
@@ -88,6 +93,21 @@ header {
             .action {
                 margin: 1rem 1.25rem 1rem;
             }
+        }
+    }
+}
+
+
+@media all and (max-width: 300px) {
+    header nav {
+        .navbar-brand {
+            img {
+                width: calc(125px + 5vw);
+            }
+        }
+        .navbar-collapse {
+            margin-top: .25rem;
+            right: .5rem;
         }
     }
 }

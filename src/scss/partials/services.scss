@@ -1,0 +1,150 @@
+.services {
+    padding: 4rem 0;
+
+    .services-view {
+        position: relative;
+        margin: 3rem 0 1rem;
+
+        .service {
+            position: relative;
+
+            display: flex;
+            height: 160px;
+            padding: 1rem 1.5rem;
+
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            border-radius: 10px;
+            overflow: hidden;
+            border: solid 3px transparent;
+
+            transition: all .2s;
+
+            .name {
+                margin-bottom: 0;
+                color: white;
+                font-weight: 500;
+                text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+                letter-spacing: 1px;
+
+                transition: opacity .2s;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: rgba(#000, 0.5);
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                bottom: 0;
+
+                transition: opacity 0.2s;
+            }
+
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+                object-fit: cover;
+            }
+
+            &:hover {
+                &::before {
+                    opacity: 0.5;
+                }
+            }
+
+            
+
+            &[aria-expanded=true] {
+                border: solid 3px #2da29a;
+                box-shadow: 0px 0px 10px rgba(#2da29a, 0.4);
+                z-index: 10;
+
+                .name {
+                    opacity: 0;
+                }
+                &::before {
+                    opacity: 0;
+                }
+            }
+        }
+
+        .collapse, .collapsing, .show {
+            background-color: white;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            z-index: 9;
+            
+            .service-info {
+                width: 768px;
+                max-width: 100%;
+                margin: 20px auto 0;
+                padding: 1.5rem 1.25rem;
+
+                border: solid 3px rgba(#2da29a, 0.4);
+                border-radius: 10px;
+
+                .name {
+                    font-weight: 600;
+                    margin-bottom: .5rem;
+                }
+
+                .cta a {
+                    font-size: .85rem;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .col {
+            // Add transition for padding-bottom, added using jquery when collapse is shown
+            transition: padding-bottom .6s;
+
+            // Only show pointer if collapse is added
+            &:has(.collapse) .service {
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+@media all and (max-width: 576px) {
+    .services {
+        .services-view {
+            margin: 2rem 0 1rem;
+            .col {
+                padding: 0;
+            }
+            .service {
+                height: calc(90px + 10vw);
+
+                &::before {
+                    background-color: rgba(#000, 0.6);
+                }
+                
+                &[aria-expanded=true] {
+                    height: 160px;
+    
+                    .name {
+                        opacity: 0;
+                    }
+                    &::before {
+                        opacity: 0;
+                    }
+                }
+            }
+            .collapse, .collapsing, .show {
+                width: calc(100% + 1.5rem);
+                left: -.75rem;
+            }
+        }
+    }
+}

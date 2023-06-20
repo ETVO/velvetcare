@@ -1,4 +1,4 @@
-$primary: #00887F;
+$primary: #00887f;
 $dark: #000;
 $light: #fff;
 $secondary: #444;
@@ -19,12 +19,12 @@ $input-focus-bg: white;
 
 $btn-font-weight: 500;
 
-$carousel-transition-duration: .8s;
+$carousel-transition-duration: 0.8s;
+$transition-collapse: height 0.6s ease;
 
-$headings-font-family: 'Montserrat', serif !default;
-$font-family-base: 'Montserrat';
+$headings-font-family: "Montserrat", serif !default;
+$font-family-base: "Montserrat";
 
 @import "~bootstrap/scss/bootstrap";
-
 
 $lead-font-size: $font-size-base * 1.25;

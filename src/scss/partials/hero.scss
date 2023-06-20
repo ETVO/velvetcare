@@ -1,0 +1,61 @@
+.hero {
+    position: relative;
+    padding: 3rem 0 5rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, #E6FFFD 100%);
+
+    .fibonacci {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 20px;
+        box-shadow: 0px -5px 15px rgba(#000, 0.15);
+    }
+
+    .wrap {
+        align-items: center;
+        .text {
+            .title {
+                margin-bottom: 2.5rem;
+                .intro {
+                    font-size: 0.9em;
+                    margin-bottom: 1rem;
+                }
+                .highlight {
+                    color: #2da29a;
+                    letter-spacing: .5px;
+                }
+            }
+
+            .action {
+                .btn {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    padding: 0.5rem 1.5rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .image {
+            display: flex;
+            img {
+                margin-left: auto;
+                width: calc(500px + 5vw);
+                max-width: 100%;
+                border-radius: 40px;
+
+            }
+        }
+    }
+}
+
+@media all and (max-width: 992px) {
+    .hero {
+        padding: 2rem 0 4rem;
+        .wrap {
+            text-align: center;
+            .image img {
+                margin: 3rem auto 0;
+            }
+        }
+    }
+}

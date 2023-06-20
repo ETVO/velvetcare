@@ -1,0 +1,40 @@
+.quem {
+    padding: 6rem 0 4rem;
+    
+    .container {
+        position: relative;
+    }
+
+    .heart {
+        position: absolute;
+        top: -7rem;
+        right: 2rem;
+        z-index: -2;
+
+        @media all and (max-width: 280px) {
+            right: 1rem;
+        }
+    }
+
+    .content {
+        margin-top: 2rem;
+
+        .title {
+            margin-bottom: 1.5rem;
+        }
+
+        .destaque {
+            display: table;
+            padding: 0.5rem 0.75rem;
+            margin: 1rem  0;
+            margin-left: -.75rem;
+            
+            font-weight: 600;
+            color: #00887f;
+
+            border: solid 1px rgba(#00887f, 0.4);
+            border-left-width: 3px;
+            border-radius: 5px;
+        }
+    }
+}

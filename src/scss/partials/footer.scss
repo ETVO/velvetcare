@@ -3,12 +3,15 @@ $spacing: 3rem;
 footer {
     background-color: #222;
     color: white;
-    padding: $spacing*1.5 0 $spacing;
+    padding: $spacing * 1.5 0 $spacing;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.2);
 
     .logo {
+        display: block;
         margin-bottom: $spacing;
         img {
             width: 275px;
+            max-width: 100%;
         }
     }
 
@@ -21,25 +24,28 @@ footer {
             margin-bottom: 1rem;
             display: flex;
             align-items: flex-start;
+            font-size: 1.1rem;
+            color: white;
+            text-decoration: none;
 
             &:last-child {
                 margin-bottom: 0;
             }
 
             .icon {
-                font-size: 1.1rem;
-                margin-right: .75rem;
+                margin-right: 0.75rem;
             }
 
             .text {
-                font-size: 1.1rem;
                 font-weight: 500;
+                letter-spacing: 0.5px;
             }
 
             .obs {
                 margin-top: 0.25rem;
-                font-weight: 300;
-                font-size: 0.9rem;
+                font-weight: 200;
+                font-size: 0.75em;
+                letter-spacing: 0.5px;
             }
         }
     }
@@ -50,7 +56,7 @@ footer {
             color: white;
             font-size: 1.5rem;
             margin-right: 0.75rem;
-            
+
             &:last-child {
                 margin-right: 0;
             }
@@ -72,8 +78,7 @@ footer {
             align-items: center;
             justify-content: space-between;
 
-            padding: 0.35rem 0.75rem;
-            margin-left: 1rem;
+            padding: 0.5rem 1rem;
 
             font-size: 1.5rem;
             font-weight: 700;
@@ -86,8 +91,9 @@ footer {
 
     .info {
         display: flex;
+
         .reclama {
-            margin-right: $spacing;
+            margin-right: $spacing*1.5;
 
             img {
                 height: 55px;
@@ -99,16 +105,157 @@ footer {
 
             img {
                 margin-right: 1rem;
-                height: 60px;
+                height: 50px;
             }
 
             .text {
                 font-weight: 300;
-                font-size: .9rem;
+                font-size: 0.85rem;
                 b {
+                    letter-spacing: 0.5px;
                     font-weight: 500;
-                    font-size: 1rem;
+                    font-size: 1.1em;
                 }
+            }
+        }
+    }
+}
+
+.bottom {
+    background: #151515;
+    color: white;
+    padding: $spacing/2 0.5rem;
+    font-size: 0.85rem;
+    border-top: solid 1px #333;
+
+    .wrap {
+        display: flex;
+        justify-content: space-between;
+
+        .copyrights {
+            a {
+                font-weight: bold;
+                color: white;
+                text-decoration: none;
+
+                transition: color .1s;
+
+                &:hover {
+                    opacity: 1;
+                    color: #2da29a;
+                }
+            }
+        }
+
+        .links {
+            a {
+                color: white;
+                text-decoration: none;
+                margin-right: 1rem;
+                &:last-child {
+                    margin: 0;
+                }
+            }
+            .etvo img {
+                height: 1.1em;
+            }
+        }
+    }
+}
+
+// lg breakpoint
+@media all and (max-width: 992px) {
+    footer {
+        .contacts {
+            margin-bottom: $spacing;
+        }
+    }
+}
+
+// md breakpoint
+@media all and (max-width: 768px) {
+    .bottom .wrap {
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+        .copyrights {
+            margin-bottom: 0.75rem;
+        }
+    }
+}
+
+// sm breakpoint
+@media all and (max-width: 576px) {
+    footer {
+        .container {
+            width: 400px;
+            margin: auto;
+            max-width: 100%;
+        }
+
+        .contacts {
+            margin-bottom: 0;
+            .contact {
+                font-size: 0.95rem;
+
+                .icon {
+                    font-size: 1.2em;
+                }
+            }
+        }
+        .footer-nav {
+            margin: $spacing/2 0;
+            font-size: 0.85rem;
+        }
+
+        .socials .social {
+            font-size: 1.25rem;
+        }
+
+        .action {
+            .caption {
+                font-size: 0.9rem;
+            }
+            .btn-primary {
+                font-size: 1.1rem;
+            }
+        }
+
+        .info {
+            flex-flow: column;
+            justify-content: center;
+            text-align: center;
+
+            .reclama {
+                margin-right: 0;
+                margin-bottom: $spacing/2;
+
+                img {
+                    height: 45px;
+                }
+            }
+
+            .seg-social {
+                flex-flow: column;
+                // align-items: flex-start;
+
+                img {
+                    margin-right: 0;
+                    margin-bottom: 0.5rem;
+                    height: 45px;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        font-size: 0.8rem;
+        .wrap .links {
+            display: flex;
+            flex-flow: column;
+            a {
+                margin-right: 0;
+                margin-bottom: .5rem;
             }
         }
     }
