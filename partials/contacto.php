@@ -43,7 +43,7 @@ $form_message = isset($_GET['form_message'])
 
             <div class="form">
                 <div class="form-header">
-                    <h3 class="fs-4">Entre em contacto</h3>
+                    <h3>Entre em contacto</h3>
                     <div class="d-flex">
                         <p class="desc">
                             para elaborarmos um plano personalizado de cuidados de saúde.

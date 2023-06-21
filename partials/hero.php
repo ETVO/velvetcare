@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 image">
-                <img src="assets/img/cuidado-velvetcare-hero.jpg" alt="">
+                <img src="assets/img/cuidado-velvetcare-hero.jpg" alt="Cuidados humanizados, com delicadeza e profissionalismo, para resgatar o “eu” em cada um de nossos utentes.">
             </div>
         </div>
     </div>

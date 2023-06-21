@@ -19,6 +19,10 @@ $contacts = array(
 
 $socials = array(
     [
+        'icon' => 'whatsapp',
+        'value' => 'https://www.wa.me/351912914920/'
+    ],
+    [
         'icon' => 'facebook',
         'value' => 'https://www.facebook.com/velvetcare.saude/'
     ],
@@ -26,14 +30,16 @@ $socials = array(
         'icon' => 'instagram',
         'value' => 'https://www.instagram.com/velvetcare.saude/'
     ],
-)
+);
+
+include 'cookies.php';
 
 ?>
 
 <footer id="footer">
     <div class="container">
         <a class="logo" href="#">
-            <img src="./assets/img/logo-white.svg" alt="">
+            <img src="./assets/img/logo-white.svg" alt="<?php echo $page_title; ?>">
         </a>
         <div class="row">
             <div class="col-12 col-lg-4">
@@ -70,7 +76,7 @@ $socials = array(
             <div class="col-12 col-sm-6 col-lg-4 text-center text-sm-end">
                 <div class="socials">
                     <?php foreach ($socials as $social) : ?>
-                        <a href="<?php echo $social['value']; ?>" class="social bi-<?php echo $social['icon']; ?>" target="_blank"></a>
+                        <a href="<?php echo $social['value']; ?>" aria-label="<?php echo $social['value']; ?>" class="social bi-<?php echo $social['icon']; ?>" target="_blank"></a>
                     <?php endforeach; ?>
                 </div>
                 <div class="action">
@@ -86,10 +92,10 @@ $socials = array(
         </div>
         <div class="info">
             <a href="" class="reclama">
-                <img src="/assets/img/livro-reclamacoes.png" alt="">
+                <img src="/assets/img/livro-reclamacoes.png" alt="Livro de Reclamações">
             </a>
             <div class="seg-social">
-                <img src="/assets/img/seg-social.png" alt="">
+                <img src="/assets/img/seg-social.png" alt="Segurança Social">
                 <div class="text">
                     <b>SEGURANÇA SOCIAL</b><br>
                     Título de Autorização de Funcionamento: 09/2023
@@ -105,10 +111,9 @@ $socials = array(
                 <?php echo date('Y'); ?> &copy; <a href="https://velvetcare.pt">VelvetCare</a>. Todos os direitos reservados.
             </div>
             <div class="links">
-                <a href="#">Política de Privacidade</a>
-                <!-- &nbsp;&bull;&nbsp; -->
+                <a href="<?php echo $privacidade_link; ?>">Política de Privacidade</a>
                 <a href="http://etvo.me" class="etvo" target="_blank">
-                    <img src="assets/img/etvo.svg" alt="">
+                    <img src="assets/img/etvo.svg" alt="Desenvolvido por etvo">
                 </a>
             </div>
         </div>

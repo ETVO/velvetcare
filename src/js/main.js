@@ -1,4 +1,5 @@
 import 'bootstrap';
+import './cookies.js';
 
 (jQuery)(
     function ($) {

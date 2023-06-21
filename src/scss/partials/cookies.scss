@@ -1,0 +1,61 @@
+.cookies-consent-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 500px;
+    max-width: 100%;
+    padding: 1rem 1.25rem;
+
+    background-color: white;
+    border: solid 3px #2da29a;
+    box-shadow: 1px 1px 6px rgba(#000, 0.2);
+    border-radius: 10px;
+
+    .close-btn {
+        position: absolute;
+        right: 1rem;
+        border: none;
+        background: none;
+        color: #2da29a;
+    }
+
+    .title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+    }
+
+    p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        color: #888;
+
+        a {
+            color: #2da29a;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: flex-start;
+        
+        .btn {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        #accept {
+            margin-right: 0.75rem;
+        }
+
+        #reject {
+            &:hover {
+                background-color: white;
+                color: #2da29a;
+                opacity: 0.6;
+            }
+        }
+    }
+}

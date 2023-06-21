@@ -1,5 +1,6 @@
 @import "./partials/header";
 @import "./partials/footer";
+@import "./partials/cookies";
 @import "./partials/hero";
 @import "./partials/services";
 @import "./partials/local";
@@ -7,7 +8,7 @@
 @import "./partials/contacto";
 
 *::selection {
-    background-color: rgba(#00615A, .75);
+    background-color: rgba(mix(#2da29a, #00887f, 10%), .75);
     color: white;
 }
 

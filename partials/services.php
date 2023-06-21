@@ -3,42 +3,42 @@ $services = array(
     [
         'name' => 'Higiene e acompanhamento no domicílio',
         'img' => '/assets/img/services/higiene-domicilio.jpg',
-        'desc' => 'Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna eu.'
+        'desc' => 'Os nossos profissionais vão até a sua casa para garantir cuidados personalizados na higiene diária, sempre respeitando a privacidade, a individualidade e o bem-estar do seu familiar.'
     ],
     [
         'name' => 'Apoio nas atividades de vida diária',
         'img' => '/assets/img/services/apoio-vida-diaria.jpg',
-        'desc' => 'Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. '
+        'desc' => 'Facilitamos a rotina dos idosos, ajudando-os nas tarefas mais simples como vestir-se, alimentar-se e na estimulação para realizar outras atividades essenciais, promovendo a autonomia e a segurança.'
     ],
     [
         'name' => 'Apoio na medicação',
         'img' => '/assets/img/services/apoio-medicacao.jpg',
-        'desc' => 'Aliquam in hendrerit urna. Vestibulum auctor ornare leo, non suscipit magna eu.'
+        'desc' => 'Cuidamos para que a medicação seja tomada corretamente, garantindo que os idosos recebam os medicamentos adequados e no momento certo, assegurando a sua saúde e o seu bem-estar. Dispomos de uma equipa de profissionais, que poderá auxiliar na compra, entrega e preparação da medicação.'
     ],
     [
         'name' => 'Acompanhamento a consultas e outros serviços',
         'img' => '/assets/img/services/acompanhamento-outros.jpg',
-        'desc' => 'Hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis Vestibulum auctor ornare leo, non suscipit magna eu.'
+        'desc' => 'Estamos presentes para acompanhar os idosos em consultas médicas e outros serviços de saúde, mas também, por exemplo, às compras ou em passeios de lazer, garantindo que recebam o apoio necessário e se sintam seguros durante as saídas de casa.'
     ],
     [
         'name' => 'Acompanhamento psicológico',
         'img' => '/assets/img/services/acompanhamento-psicologico.jpg',
-        'desc' => 'Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna eu.Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna eu.'
-    ],
-    [
-        'name' => 'Sessões de fisioterapia',
-        'img' => '/assets/img/services/fisioterapia.jpg',
-        'desc' => 'Aliquam in hendrerit urna.'
+        'desc' => 'Oferecemos apoio emocional especializado para lidar com questões como a solidão, ansiedade e tristeza que podem acomoter os mais velhos com o passar dos anos. Esse acompanhamento promove o bem-estar mental e a qualidade de vida dos idosos.'
     ],
     [
         'name' => 'Estimulação cognitiva',
         'img' => '/assets/img/services/estimulacao-cognitiva.jpg',
-        'desc' => 'Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna eu.'
+        'desc' => 'Promovemos atividades que estimulam a memória, a atenção e a cognição dos idosos, mantendo as suas mentes ativas e fortalecendo as suas capacidades cognitivas e motoras.'
     ],
     [
-        'name' => 'Venda de materiais geriátricos',
+        'name' => 'Sessões de fisioterapia',
+        'img' => '/assets/img/services/fisioterapia.jpg',
+        'desc' => 'Os nossos fisioterapeutas especializados poderão realizar sessões personalizadas ao domicílio dos idosos, com o objetivo de promover a mobilidade, fortalecer a musculatura e melhorar a qualidade de vida.'
+    ],
+    [
+        'name' => 'Venda de materiais geriátricos e consumíveis',
         'img' => '/assets/img/services/materiais-geriatricos.jpg',
-        'desc' => 'Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna eu.'
+        'desc' => 'Dispomos de uma ampla gama de materiais geriátricos e consumiveis de qualidade. Fazemos entregas no seu domicílio, ajudando a diminuir a preocupação com a falta de produtos, como luvas, máscaras e fraldas geriátricas, por exemplo.'
     ],
 );
 
@@ -57,7 +57,7 @@ $services = array(
                             <h3 class="name fs-5">
                                 <?php echo $service['name']; ?>
                             </h3>
-                            <img src="<?php echo $service['img']; ?>" alt="">
+                            <img src="<?php echo $service['img']; ?>" alt="<?php echo $service['desc']; ?>">
                         </div>
                         <?php if (isset($service['desc'])) : ?>
                             <div class="collapse accordion-collapse" id="<?php echo $id; ?>" data-bs-parent="#servicesAccordion">

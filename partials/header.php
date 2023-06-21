@@ -1,31 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php 
+<?php
 
 $href = '';
 
 $currentpage = $_SERVER['REQUEST_URI'];
 if (!($currentpage == "/" || $currentpage == "/index.php" || $currentpage == "/index" || $currentpage == "")) {
     $href = 'index.php';
-} 
+}
 
-if(!isset($page_title))
+if (!isset($page_title))
     $page_title = 'Velvet Care';
+
+
+$privacidade_link = '/politica-privacidade.php';
+
+$GA_TRACKING_ID = 'G-JXHF9X3TYJ';
 
 ?>
 
 <head>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $GA_TRACKING_ID; ?>"></script>
+    <script>
+        if (localStorage.getItem('allowCookies') == 'deny') {
+            removeGTag();
+        }
+        else {
+            addGTag();
+        }
+
+        function addGTag() {
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                window.dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', '<?php echo $GA_TRACKING_ID; ?>');
+        }
+
+        function removeGTag() {
+            window['ga-disable-<?php echo $GA_TRACKING_ID; ?>'] = true;
+        }
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?php echo $page_title; ?></title>
+    <?php include 'partials/meta-tags.php' ?>
 
     <link rel="shortcut icon" href="/assets/img/favicon.svg" type="image/x-icon">
 
-    <link rel="preload" as="style" href="/assets/fonts/Montserrat/font.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -59,7 +92,7 @@ if(!isset($page_title))
                         </li>
                     </ul>
                     <div class="action">
-                        <a href="<?php echo $href; ?>#contacto" class="btn btn-primary">
+                        <a href="tel:+351912914920" class="btn btn-primary">
                             <span class="icon bi-telephone-fill"></span>
                             <span class="text">912 914 920</span>
                         </a>
