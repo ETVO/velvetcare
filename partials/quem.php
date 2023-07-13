@@ -6,7 +6,9 @@ $quem = [
     A atenção aos idosos, na nossa visão, não se pode restringir aos cuidados de enfermagem e/ou higiene.
     </div>
     Sendo assim, proporcionamos serviços especializados de acompanhamento para atividades do dia a dia, como assistência em saídas e compras, gestão da medicação e estímulo às atividades cognitivas, entre tantos outros cuidados personalizados à medida das necessidades de cada pessoa atendida.'
-]
+];
+
+$quem = $blocks['quem'];
 
 ?>
 
@@ -14,15 +16,15 @@ $quem = [
     <div class="container default">
         <img src="/assets/img/coracao.svg" class="heart">
         <div class="side-title">
-            <h2 class="fs-4">Quem Somos</h2>
+            <h2 class="fs-4"><?= $quem['title']; ?></h2>
         </div>
         <div class="content">
             <h2 class="title fs-4">
-                <?php echo $quem['title']; ?>
+                <?= $quem['subtitle']; ?>
             </h2>
 
             <div>
-                <?php echo $quem['content']; ?>
+                <?= $quem['content']; ?>
             </div>
         </div>
     </div>

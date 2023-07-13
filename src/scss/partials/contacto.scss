@@ -1,3 +1,26 @@
+.single {
+    .contacto {
+        .wrap {
+            .center-title {
+                display: none;
+            }
+            .content {
+                p {
+                    font-weight: 600;
+                    font-size: calc(1rem + 0.6vw);
+                }
+            }
+            .contacts {
+                display: none;
+
+                &-title {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
 .contacto {
     .wrap {
         .form {
@@ -14,6 +37,8 @@
             .form-header {
                 margin-bottom: 1.5rem;
                 h3 {
+                    font-size: calc(1.5rem + 0.6vw);
+                    letter-spacing: 2px;
                     font-weight: 600;
                 }
                 p.desc {
@@ -21,7 +46,7 @@
                     margin: auto;
                     max-width: 100%;
                     font-size: 1.1rem;
-        
+
                     @media all and (max-width: 576px) {
                         font-size: 1rem;
                     }
@@ -36,7 +61,6 @@
                 border: solid 1px transparent;
                 border-radius: 5px;
                 font-weight: 500;
-
 
                 &::before {
                     content: "ERRO";
@@ -138,14 +162,37 @@
     }
 }
 
+@media all and (max-width: 576px) {
+    .contacto {
+        .wrap {
+            .form {
+                .form-header {
+                    h3 {
+                        font-size: calc(1.3rem + 0.6vw);
+                        letter-spacing: 0.4px;
+                    }
+                    div {
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+            .contacts {
+                .contact {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
 @media all and (max-width: 300px) {
     .contacto {
         .container {
-            padding-right: .5rem;
-            padding-left: .5rem;
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
         }
         .content {
-            padding: 0 .75rem;
+            padding: 0 0.75rem;
         }
         .form {
             padding: 1.5rem 1rem !important;

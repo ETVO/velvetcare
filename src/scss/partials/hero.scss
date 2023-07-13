@@ -1,7 +1,7 @@
 .hero {
     position: relative;
-    padding: 3rem 0 5rem;
-    background: linear-gradient(180deg, #FFFFFF 0%, #E6FFFD 100%);
+    padding: 2rem 0 calc(5rem + 20px);
+    background: linear-gradient(180deg, #ffffff 0%, #e6fffd 100%);
 
     .fibonacci {
         position: absolute;
@@ -12,23 +12,30 @@
     }
 
     .wrap {
-        align-items: center;
+        align-items: flex-end;
         .text {
+            .logo img {
+                display: none;
+                height: 105px;
+                max-width: 100%;
+                margin-bottom: 5rem;
+            }
             .title {
                 margin-bottom: 2.5rem;
                 .intro {
-                    font-size: 0.9em;
-                    margin-bottom: 1rem;
+                    font-weight: 600;
+                    font-size: 0.8em;
+                    margin-bottom: 1.5rem;
                 }
                 .highlight {
                     color: #2da29a;
-                    letter-spacing: .5px;
+                    letter-spacing: 0.5px;
                 }
             }
 
             .action {
                 .btn {
-                    font-size: 1.1rem;
+                    font-size: 1.25rem;
                     font-weight: 600;
                     padding: 0.5rem 1.5rem;
                     text-transform: uppercase;
@@ -42,7 +49,6 @@
                 width: calc(500px + 5vw);
                 max-width: 100%;
                 border-radius: 40px;
-
             }
         }
     }
@@ -51,10 +57,66 @@
 @media all and (max-width: 992px) {
     .hero {
         padding: 2rem 0 4rem;
+        margin-top: 0;
         .wrap {
             text-align: center;
-            .image img {
-                margin: 3rem auto 0;
+            .text {
+                padding-bottom: 0;
+                .title {
+                    margin-bottom: 2rem;
+                    .intro {
+                        margin-bottom: 0.75rem;
+                    }
+                }
+                .action .btn {
+                    font-size: 1.1rem;
+                }
+            }
+            .image {
+                margin-top: 3rem;
+                img {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 576px) {
+    .hero {
+        .wrap {
+            text-align: left;
+            .text {
+                .title {
+                    font-size: calc(1.375rem + 1vw);
+                }
+                .action {
+                    .btn {
+                        font-size: calc(.9rem + 0.25vw);
+                        margin-right: auto;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 330px) {
+    .hero {
+        padding: 1rem 0 4rem;
+        .wrap {
+            .text {
+                .title {
+                    font-size: calc(1rem + 1vw);
+                    .intro {
+                        font-size: .9em;
+                    }
+                }
+                .action .btn {
+                    font-size: calc(0.8rem + 0.25vw);
+                    line-height: 1.5 !important;
+                }
             }
         }
     }

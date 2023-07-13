@@ -1,17 +1,13 @@
 <?php
 
 $page_title = 'VelvetCare';
+$body_class = 'home';
+$index_include = true;
 
-// $content_json = file_get_contents('./manage/data/content.json');
-// $content = json_decode($content_json, true, 512, JSON_FORCE_OBJECT);
+include_once 'integrate.php';
 
-// $blocks = $content['blocks'];
-
-// $blocks = [];
-// foreach($content['blocks'] as $key => $value){
-//     $key = explode(':', $key)[0];
-//     $blocks[$key] = $value;
-// }
+$content = get_data('content');
+$blocks = filter_blocks($content['blocks']);
 
 include './partials/header.php';
 include './partials/hero.php';
@@ -22,5 +18,3 @@ include './partials/contacto.php';
 
 
 include './partials/footer.php';
-
-?>

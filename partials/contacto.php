@@ -1,27 +1,27 @@
 <?php
 
-$contacts = array(
-    [
-        'icon' => 'phone',
-        'value' => '912 914 920',
-        'obs' => '* chamada para rede móvel nacional'
-    ],
-    [
-        'icon' => 'geo-alt',
-        'value' => 'Av. de São Félix, 878.<br>4760-490. V. N. Famalicão',
-        'obs' => 'ao lado da Farmácia de Gondifelos'
-    ],
-    [
-        'icon' => 'envelope',
-        'value' => 'info@velvetcare.pt',
-    ],
-);
+// $contacts = array(
+//     [
+//         'icon' => 'phone',
+//         'value' => '912 914 920',
+//         'obs' => '* chamada para rede móvel nacional'
+//     ],
+//     [
+//         'icon' => 'geo-alt',
+//         'value' => 'Av. de São Félix, 878<br>4760-490 - Gondifelos<br>Vila Nova de Famalicão',
+//         'obs' => 'ao lado da Farmácia de Gondifelos',
+//     ],
+//     [
+//         'icon' => 'envelope',
+//         'value' => 'info@velvetcare.pt',
+//     ],
+// );
 
 $form_message = isset($_GET['form_message'])
     ? $_GET['form_message']
     : '';
 
-
+$contact = $blocks['contact'];
 ?>
 
 <section class="contacto center-section" id="contacto">
@@ -32,21 +32,21 @@ $form_message = isset($_GET['form_message'])
                     <span class="bi-chat-square-text"></span>
                 </div>
                 <div class="wrap-title">
-                    <h2 class="fs-4">Contacto</h2>
+                    <h2 class="fs-4"><?= $contact['title']; ?></h2>
                 </div>
             </div>
             <div class="content">
                 <p>
-                    Tem um familiar que necessita da assistência da Velvetcare?
+                <?= $contact['subtitle']; ?>
                 </p>
             </div>
 
             <div class="form">
                 <div class="form-header">
-                    <h3>Entre em contacto</h3>
+                    <h3><?= $contact['form_title']; ?></h3>
                     <div class="d-flex">
                         <p class="desc">
-                            para elaborarmos um plano personalizado de cuidados de saúde.
+                        <?= $contact['form_desc']; ?>
                         </p>
                     </div>
                 </div>
@@ -98,7 +98,7 @@ $form_message = isset($_GET['form_message'])
                     <a class="contact" href="<?php echo $contact['link'] ?? '#contacto'; ?>">
                         <span class="icon bi-<?php echo $contact['icon']; ?>"></span>
                         <div class="text">
-                            <?php echo $contact['value']; ?>
+                            <?php echo $contact['content']; ?>
                             <div class="obs"><?php echo $contact['obs'] ?? ''; ?></div>
                         </div>
                     </a>

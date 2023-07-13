@@ -1,3 +1,5 @@
+<?php $local = $blocks['local']; ?>
+
 <section class="local center-section" id="localizacao">
     <div class="container default">
         <div class="wrap">
@@ -7,14 +9,12 @@
                     <span class="bi-pin-map"></span>
                 </div>
                 <div class="wrap-title">
-                    <h2 class="fs-4">Localização</h2>
+                    <h2 class="fs-4"><?= $local['title']; ?></h2>
                 </div>
             </div>
             <div class="content">
                 <p>
-                    <b>Estamos localizados em Vila Nova de Famalicão, em Gondifelos.</b>
-                    <br><br>
-                    Prestamos atendimento em Famalicão, Trofa, Santo Tirso, Barcelos e Póvoa de Varzim.
+                    <?= $local['content']; ?>
                 </p>
             </div>
         </div>

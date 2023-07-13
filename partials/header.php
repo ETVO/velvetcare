@@ -1,17 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
+
+setlocale(LC_ALL, 'pt_PT');
 
 $href = '';
 
 $currentpage = $_SERVER['REQUEST_URI'];
 if (!($currentpage == "/" || $currentpage == "/index.php" || $currentpage == "/index" || $currentpage == "")) {
-    $href = 'index.php';
+    $href = '/';
 }
 
+$logo_link = ($href == '') ? '#' : $href;
+
+$menu_options = array(
+    array(
+        'name' => 'Serviços',
+        'link' => $href . '#servicos'
+    ),
+    array(
+        'name' => 'Quem Somos',
+        'link' => $href . '#quem-somos'
+    ),
+    array(
+        'name' => 'Blog',
+        'link' => '/blog/'
+    ),
+    array(
+        'name' => 'Contacto',
+        'link' => $href . '#contacto'
+    ),
+);
+
 if (!isset($page_title))
-    $page_title = 'Velvet Care';
+    $page_title = 'VelvetCare';
 
 
 $privacidade_link = '/politica-privacidade.php';
@@ -19,6 +39,8 @@ $privacidade_link = '/politica-privacidade.php';
 $GA_TRACKING_ID = 'G-JXHF9X3TYJ';
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
@@ -27,8 +49,7 @@ $GA_TRACKING_ID = 'G-JXHF9X3TYJ';
     <script>
         if (localStorage.getItem('allowCookies') == 'deny') {
             removeGTag();
-        }
-        else {
+        } else {
             addGTag();
         }
 
@@ -52,7 +73,7 @@ $GA_TRACKING_ID = 'G-JXHF9X3TYJ';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <?php include 'partials/meta-tags.php' ?>
+    <?php include dirname(__FILE__) . '/meta-tags.php' ?>
 
     <link rel="shortcut icon" href="/assets/img/favicon.svg" type="image/x-icon">
 
@@ -63,38 +84,37 @@ $GA_TRACKING_ID = 'G-JXHF9X3TYJ';
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/fonts/bootstrap-icons/bootstrap-icons.css">
+    <?php if($is_blog): ?>
+        <link rel="stylesheet" href="/assets/css/blog.css">
+    <?php endif; ?>
 </head>
 
-<body>
+<body class="<?= $body_class; ?>">
 
     <header id="header">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="<?php echo $href; ?>#">
-                    <img src="/assets/img/logo.svg" alt="VelvetCare">
+                    <img src="/assets/img/logo.png" alt="VelvetCare">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="bi-list"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarMenu">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $href; ?>#servicos">Serviços</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $href; ?>#quem-somos">Quem Somos</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $href; ?>#blog">Blog</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $href; ?>#contacto">Contacto</a>
-                        </li>
+                        <?php foreach ($menu_options as $option) :
+                            $link = $option['link'];
+                            $name = $option['name'];
+                        ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo $link; ?>"><?php echo $name; ?></a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                     <div class="action">
-                        <a href="tel:+351912914920" class="btn btn-primary">
+                        <a href="tel:<?= str_replace(' ', '', $main_tel); ?>" class="btn btn-primary">
                             <span class="icon bi-telephone-fill"></span>
-                            <span class="text">912 914 920</span>
+                            <span class="text"><?= $main_tel; ?></span>
                         </a>
                     </div>
                 </div>

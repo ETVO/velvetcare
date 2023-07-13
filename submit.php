@@ -1,4 +1,12 @@
 <?php
+//Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
 $is_ajax = isset($_GET['ajax']) ? $_GET['ajax'] : false;
 $form_anchor = isset($_POST['form-anchor']) ? $_POST['form-anchor'] : 'contact-form';
 
@@ -38,26 +46,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($errors)) {
 
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer();
+
         $to = 'info@velvetcare.pt'; // Replace with your email address
         $subject = 'Contacto Submetido no Formulário';
 
-        $emailMessage = "Nome: $name\n";
-        $emailMessage .= "Email: $email\n";
-        $emailMessage .= "Telefone: $tel\n\n";
-        $emailMessage .= "Mensagem:\n$message";
-
-        $headers = "From: $name <$email>\r\n";
-        $headers .= "Reply-To: $email\r\n";
+        $body = "Nome: $name\n";
+        $body .= "Email: $email\n";
+        $body .= "Telefone: $tel\n\n";
+        $body .= "Mensagem:\n$message";
 
         try {
-            if (mail($to, $subject, $emailMessage, $headers)) {
-                $response = "A sua mensagem foi recebida e será respondida em breve!";
-            } else {
-                $response = "Infelizmente ocorreu um erro ao enviar a sua mensagem. Por favor, tente novamente mais tarde.";
-                http_response_code(400);
-            }
+            //Server settings
+            $mail->isSMTP();
+            $mail->Host       = 'mail.velvetcare.pt';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'admin@velvetcare.pt';
+            $mail->Password   = 'secret';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = 465;
+            $mail->CharSet = "UTF-8";
+
+            //Recipients
+            $mail->setFrom($email, $name);
+            $mail->addAddress($to);
+            $mail->addReplyTo($email, $name);
+
+            //Content
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+
+            $mail->send();
+            $response = "A sua mensagem foi recebida e será respondida em breve!";
+
         } catch (Exception $e) {
-            $response = "Ocorreu um erro. Contacte o administrador. (" . $e->getMessage() . ")";
+            $response = "Ocorreu um erro. Contacte o administrador. ({$mail->ErrorInfo})";
             http_response_code(400);
         }
 

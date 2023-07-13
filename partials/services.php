@@ -42,31 +42,35 @@ $services = array(
     ],
 );
 
+$services = $blocks['services'];
+
 ?>
 <section class="services" id="servicos">
     <div class="container default">
         <div class="side-title">
-            <h2 class="fs-4">Serviços</h2>
+            <h2 class="fs-4">
+                <?= $services['title']; ?>
+            </h2>
         </div>
         <div class="services-view accordion accordion-flush" id="servicesAccordion">
             <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
-                <?php foreach ($services as $key => $service) :
+                <?php foreach ($services['services'] as $key => $service) :
                     $id = "serviceInfo$key"; ?>
                     <div class="col">
                         <div class="service" data-bs-toggle="collapse" data-bs-target="#<?php echo $id; ?>" aria-expanded="false" aria-controls="<?php echo $id; ?>">
                             <h3 class="name fs-5">
                                 <?php echo $service['name']; ?>
                             </h3>
-                            <img src="<?php echo $service['img']; ?>" alt="<?php echo $service['desc']; ?>">
+                            <img src="<?php echo $service['image']; ?>" alt="<?php echo $service['description']; ?>">
                         </div>
-                        <?php if (isset($service['desc'])) : ?>
+                        <?php if (isset($service['description'])) : ?>
                             <div class="collapse accordion-collapse" id="<?php echo $id; ?>" data-bs-parent="#servicesAccordion">
                                 <div class="service-info">
                                     <h3 class="name fs-4">
                                         <?php echo $service['name']; ?>
                                     </h3>
                                     <p class="description">
-                                        <?php echo $service['desc']; ?>
+                                        <?php echo $service['description']; ?>
                                     </p>
                                     <div class="cta">
                                         <a href="#contacto" class="btn btn-primary">CONTACTE-NOS</a>

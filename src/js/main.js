@@ -35,11 +35,8 @@ import './cookies.js';
                     showFormMessage('success', response);
 
                     $('#contact-form')[0].reset(); // Reset form fields
-
-
                 },
                 error: function (xhr, status, error) {
-
                     $('#contact-form #spinner').fadeOut(200);
                     clearControlFeedback();
 
@@ -55,7 +52,6 @@ import './cookies.js';
                     else {
                         showFormMessage('error', xhr.responseText);
                     }
-
                 }
             });
 
