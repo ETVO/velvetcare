@@ -1,6 +1,6 @@
 <?php
 
-$page_title = 'Página não ecnontrada...';
+$page_title = 'Página não encontrada...';
 
 include './partials/header.php';
 

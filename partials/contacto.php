@@ -1,27 +1,23 @@
 <?php
 
-// $contacts = array(
-//     [
-//         'icon' => 'phone',
-//         'value' => '912 914 920',
-//         'obs' => '* chamada para rede móvel nacional'
-//     ],
-//     [
-//         'icon' => 'geo-alt',
-//         'value' => 'Av. de São Félix, 878<br>4760-490 - Gondifelos<br>Vila Nova de Famalicão',
-//         'obs' => 'ao lado da Farmácia de Gondifelos',
-//     ],
-//     [
-//         'icon' => 'envelope',
-//         'value' => 'info@velvetcare.pt',
-//     ],
-// );
+include CONTROL_DIR . '/form_util.php';
 
 $form_message = isset($_GET['form_message'])
     ? $_GET['form_message']
     : '';
 
 $contact = $blocks['contact'];
+
+$contact_model = get_model('contact');
+
+$form_status = isset($_GET['form_status'])
+    ? $_GET['form_status']
+    : '';
+
+$form_message = isset($_GET['form_message'])
+    ? $_GET['form_message']
+    : '';
+
 ?>
 
 <section class="contacto center-section" id="contacto">
@@ -37,7 +33,7 @@ $contact = $blocks['contact'];
             </div>
             <div class="content">
                 <p>
-                <?= $contact['subtitle']; ?>
+                    <?= $contact['subtitle']; ?>
                 </p>
             </div>
 
@@ -46,41 +42,26 @@ $contact = $blocks['contact'];
                     <h3><?= $contact['form_title']; ?></h3>
                     <div class="d-flex">
                         <p class="desc">
-                        <?= $contact['form_desc']; ?>
+                            <?= $contact['form_desc']; ?>
                         </p>
                     </div>
                 </div>
-                <form id="contact-form" action="submit.php" method="post" novalidate>
+                <form id="contact-form" action="<?= CONTROL_URL . '/send_mail.php' ?>" method="post" novalidate>
                     <input type="hidden" name="form-anchor" value="#contacto">
-                    <div id="form-message" class="<?php if ($form_message) echo 'error' ?>">
+                    <div id="form-message" class="<?php if ($form_status) echo $form_status ?>">
                         <div class="message">
                             <?php echo $form_message; ?>
                         </div>
                     </div>
-                    <div class="field">
-                        <input type="text" name="name" class="form-control" placeholder="Nome" required>
-                        <div class="invalid-feedback">
-                            Por favor insira o seu nome.
+                    <?php
+                    render_form_fields($contact_model['fields']);
+                    ?>
+                    <?php if (isset($contact_model['honeypot'])) :
+                        $honey_name = $contact_model['honeypot']; ?>
+                        <div class="special-field">
+                            <input type="text" name="<?= $honey_name; ?>" class="form-control" placeholder="Honey">
                         </div>
-                    </div>
-                    <div class="field">
-                        <input type="email" name="email" class="form-control" placeholder="Email" required>
-                        <div class="invalid-feedback">
-                            Por favor insira um email válido.
-                        </div>
-                    </div>
-                    <div class="field">
-                        <input type="tel" name="tel" class="form-control" placeholder="Telefone" required>
-                        <div class="invalid-feedback">
-                            Por favor insira o seu telefone.
-                        </div>
-                    </div>
-                    <div class="field">
-                        <textarea name="message" class="form-control" rows="4" placeholder="Mensagem" required></textarea>
-                    </div>
-                    <div class="special-field">
-                        <input type="text" name="website" class="form-control" placeholder="Website">
-                    </div>
+                    <?php endif; ?>
                     <div class="d-flex">
                         <button type="submit" class="btn btn-primary">
                             ENVIAR

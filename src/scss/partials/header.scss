@@ -1,15 +1,17 @@
 
-body.home {
-    header {
-        padding: 2rem 0 1rem;
-        nav {
-    
-            .navbar-brand {
-                img {
-                    width: 400px;
-    
-                    @media all and (max-width: 1200px) {
-                        width: 300px;
+@media all and (min-width: 992px) {
+    body.home {
+        header {
+            padding: 2rem 0 1rem;
+            nav {
+        
+                .navbar-brand {
+                    img {
+                        width: 400px;
+        
+                        @media all and (max-width: 1200px) {
+                            width: 300px;
+                        }
                     }
                 }
             }

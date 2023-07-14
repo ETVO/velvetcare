@@ -12,10 +12,6 @@ define(
         . '://' . $_SERVER['SERVER_NAME']
 );
 
-
-$request = str_replace('#', '', $request);
-$request = explode('?', $request)[0];
-
 $info = get_data('info');
 
 $main_tel = $info['main_tel'];

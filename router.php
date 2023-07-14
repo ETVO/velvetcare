@@ -5,6 +5,9 @@ $viewDir = '/';
 
 include_once 'integrate.php';
 
+$request = str_replace('#', '', $request);
+$request = explode('?', $request)[0];
+
 // Check if the request matches the format '/post/{slug}'
 if (preg_match('/^\/post\/([^\/]+)/', $request, $matches)) {
     $slug = $matches[1];
@@ -20,7 +23,7 @@ if (preg_match('/^\/post\/([^\/]+)/', $request, $matches)) {
 if (preg_match('/^\/blog\/([^\/]+)/', $request, $matches)) {
     $category_slug = $matches[1];
     if (count(explode('/', $request)) > 3) {
-        header('Location: /blog/' . $slug);
+        header('Location: /blog/' . $category_slug);
     }
     // Include blog.php with the category slug as a parameter
     require __DIR__ . $viewDir . 'blog.php';
@@ -34,11 +37,15 @@ switch ($request) {
         break;
 
     case '/blog/':
+    case '/blog':
         require __DIR__ . $viewDir . 'blog.php';
         break;
 
     case '/blog/post/':
-        require __DIR__ . $viewDir . 'single.php';
+    case '/blog/post':
+    case '/post/':
+    case '/post':
+        header('Location: /blog/');
         break;
 
 

@@ -31,8 +31,9 @@ $menu_options = array(
 );
 
 if (!isset($page_title))
-    $page_title = 'VelvetCare';
+$page_title = 'VelvetCare';
 
+$is_blog = $is_blog ?? false;
 
 $privacidade_link = '/politica-privacidade.php';
 

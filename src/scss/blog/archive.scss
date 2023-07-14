@@ -1,4 +1,5 @@
 $primary: #2da29a;
+$border-radius: 5px;
 
 .blog {
     padding: 1rem 0 2rem;
@@ -10,11 +11,17 @@ $primary: #2da29a;
         align-items: baseline;
         flex-wrap: wrap;
 
+        &:not(:has(.category.selected)) {
+            .clear-filters {
+                display: none;
+            }
+        }
+
         .category {
-            border: solid 2px rgba($primary, .4);
+            border: solid 2px rgba($primary, 0.4);
             border-top-width: 4px;
 
-            border-radius: 0 0 5px 5px;
+            border-radius: 0 0 $border-radius $border-radius;
             color: var(--bs-primary);
 
             font-weight: 500;
@@ -106,7 +113,7 @@ $primary: #2da29a;
 
             margin: 1rem 0 2rem;
             background-color: #fff;
-            border-radius: 5px;
+            border-radius: $border-radius;
             overflow: hidden;
 
             box-shadow: 2px 2px 6px rgba(#000, 0.1);
@@ -175,10 +182,11 @@ $primary: #2da29a;
                         line-height: 1;
 
                         padding: 0.25rem 0.75rem;
-                        border-radius: 5px;
+                        border-radius: $border-radius;
 
-                        background-color: #eee;
-                        color: #000;
+                        background-color: mix(white, $primary, 90%);
+                        color: mix(black, $primary, 40%);
+                        // color: #000;
                     }
                     .post-date {
                         line-height: 1;
@@ -190,9 +198,8 @@ $primary: #2da29a;
                     text-decoration: none;
 
                     .title {
-                        // padding-top: 0.75rem;
-                        // width: 600px;
-                        // max-width: 100%;
+                        width: 700px;
+                        max-width: 100%;
                     }
                 }
 
@@ -219,7 +226,7 @@ $primary: #2da29a;
         }
     }
     .message-wrap {
-        margin: .5rem 0;
+        margin: 0.5rem 0;
         .message {
             font-weight: 400;
             font-size: 1rem;
@@ -228,28 +235,21 @@ $primary: #2da29a;
     }
 }
 
-@media all and (max-width: 1400px) {
-    .blog .posts-wrap .post .content .title {
-        padding-top: 1.5rem;
-        width: auto;
-    }
-}
-
 @media all and (max-width: 992px) {
     .blog {
         .posts-wrap {
             .post {
+                flex-flow: column;
                 .image {
-                    img,
-                    .placeholder-img {
-                        width: 200px;
-                    }
+                    margin-right: 0;
+                    width: 100%;
+                    height: 200px;
                 }
                 .content {
-                    .meta {
-                        position: relative;
-                        inset: 0;
-                        margin-left: -0.5rem;
+                    width: 100%;
+                    padding: 1.5rem;
+                    .title {
+                        width: auto;
                     }
                 }
             }
@@ -263,25 +263,13 @@ $primary: #2da29a;
             .post {
                 flex-flow: column;
                 .image {
-                    margin-right: 0;
                     img,
                     .placeholder-img {
-                        width: 100%;
-                        height: 200px;
-                        border-radius: 1rem 1rem 0 0;
+                        border-radius: $border-radius $border-radius 0 0;
                     }
                 }
                 .content {
-                    padding: 0 1.5rem 1.5rem;
-
-                    .meta {
-                        box-shadow: 0 0 3px rgba(#000, 0.2);
-                        position: relative;
-                        inset: 0;
-                        top: -1rem;
-                    }
                     .title {
-                        padding-top: 0;
                         margin-bottom: 0.75rem;
                     }
                 }
@@ -302,6 +290,23 @@ $primary: #2da29a;
             .post {
                 .content {
                     padding: 0 1.25rem 1.5rem;
+                    .meta {
+                        flex-flow: column;
+                        align-items: flex-start;
+                        margin-top: -0.7rem;
+                        // font-size: .8rem;
+                        .separator {
+                            display: none;
+                        }
+                        .post-categories {
+                            margin-left: -0.5rem;
+                            padding: .5rem;
+                            box-shadow: 0 0 5px rgba(#000, 0.2);
+                        }
+                        .post-date {
+                            margin-top: 0.75rem;
+                        }
+                    }
                 }
             }
         }

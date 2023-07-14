@@ -4,6 +4,11 @@ include CONTROL_DIR . '/blog_util.php';
 
 $post = get_post_by_slug($slug);
 
+if (!$post) {
+    http_response_code(404);
+    require __DIR__ . $viewDir . '404.php';
+}
+
 $title = $post['title']['rendered'];
 $content = $post['content']['rendered'];
 $date = $post['date'];
@@ -13,7 +18,7 @@ $image = get_post_featured_image($post);
 $fmt = new \IntlDateFormatter('pt_PT');
 $fmt->setPattern("d 'de' MMMM 'de' yyyy");
 // See: https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax for pattern syntax
-$date = $fmt->format(new \DateTime());
+$date = $fmt->format(strtotime($date));
 
 $page_title = $title;
 $is_blog = true;

@@ -1,5 +1,7 @@
-$overlay1: linear-gradient(rgba(#004a45, 0), rgba(mix(black, #004a45, 20%), 0.6) 50%);
-$overlay2: linear-gradient(rgba(#2da29a, 0), rgba(mix(black, #2da29a, 20%), 0.6) 50%);
+$bgcolor1:mix(black, #004a45, 40%); 
+$bgcolor2:mix(black, #2da29a, 40%); 
+$overlay1: linear-gradient(rgba($bgcolor1, 0), rgba($bgcolor1, 0.8));
+$overlay2: linear-gradient(rgba($bgcolor2, 0), rgba($bgcolor2, 0.8));
 
 $color: #fff;
 $color_hover: #fff;
@@ -34,13 +36,17 @@ $color_hover: #fff;
                 margin-bottom: 0;
                 
                 color: $color;
-                font-size: 1.05rem !important;
+                font-size: 1rem !important;
                 font-weight: 600;
+                
+                @media (min-width: 1400px) {
+                    font-size: 1.1rem !important;
+                }
 
                 word-wrap: break-word;
                                 
                 letter-spacing: .5px;
-                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, .4);
                 text-transform: uppercase;
 
                 transition: opacity 0.2s;
