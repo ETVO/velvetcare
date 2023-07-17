@@ -26,7 +26,14 @@ $hero = $blocks['hero'];
                 </div>
             </div>
             <div class="col-12 col-lg-6 image">
-                <img src="assets/img/cuidado-velvetcare-hero.jpg" alt="Cuidados humanizados, com delicadeza e profissionalismo, para resgatar o “eu” em cada um de nossos utentes.">
+                <?php if ($hero['image']) : 
+                    $src = $hero['image']['src'];
+                    $alt = $hero['image']['alt'];
+                    ?>
+                    <img src="<?= $src; ?>" alt="<?= $alt; ?>">
+                <?php else : ?>
+                    <img src="/assets/img/cuidado-velvetcare-hero.jpg" alt="Cuidados humanizados, com delicadeza e profissionalismo, para resgatar o “eu” em cada um de nossos utentes.">
+                <?php endif; ?>
             </div>
         </div>
     </div>

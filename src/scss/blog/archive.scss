@@ -119,9 +119,8 @@ $border-radius: 5px;
             box-shadow: 2px 2px 6px rgba(#000, 0.1);
 
             .image {
-                display: flex;
-                margin-right: 2rem;
                 overflow: hidden;
+                margin-right: 2rem;
                 width: 300px;
 
                 &:has(img) .placeholder-img {
@@ -159,9 +158,7 @@ $border-radius: 5px;
             .content {
                 position: relative;
                 width: calc(100% - 300px);
-                padding: 2rem 1rem;
-                display: flex;
-                flex-flow: column;
+                padding: 2rem 2rem 2rem 1rem;
 
                 .meta {
                     display: inline-flex;
@@ -300,7 +297,7 @@ $border-radius: 5px;
                         }
                         .post-categories {
                             margin-left: -0.5rem;
-                            padding: .5rem;
+                            padding: 0.5rem;
                             box-shadow: 0 0 5px rgba(#000, 0.2);
                         }
                         .post-date {

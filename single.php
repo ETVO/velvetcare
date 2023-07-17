@@ -47,14 +47,18 @@ include './partials/header.php';
                     <?php foreach ($categories as $category) :
                         $name = $category['name'];
                         $slug = $category['slug'];
-
+                        
                         echo "<a href='/blog/$slug'>$name</a>";
-
+                        
                     endforeach; ?>
                 </div>
-
+                
                 <div class="post-date"><?= $date; ?></div>
             </div>
+            <a class="back-to" href="/blog/">
+                <span class="bi-arrow-left"></span>
+                Voltar ao Blog
+            </a>
         </div>
     </div>
 

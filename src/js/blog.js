@@ -126,14 +126,17 @@
 
                 var image = post.featured_image_data;
 
-                var img = '';
-                if (image) {
-                    img = $('<img>', { src: image.src });
-                }
-                newPost.find('.image').append(img);
-
                 var title = post.title.rendered;
                 newPost.find('.title').html(title);
+
+                var img = '';
+                if (image) {
+                    var imgSrc = image.src_thumb;
+                    imgSrc = image.src_medium; 
+                    // if(title.length > 40) 
+                    img = $('<img>', { src: imgSrc });
+                }
+                newPost.find('.image').append(img);
 
                 var excerpt = post.excerpt.rendered;
                 newPost.find('.excerpt').html(excerpt);

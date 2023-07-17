@@ -1,3 +1,4 @@
+
 .single .post-content {
     font-weight: 400;
     line-height: 1.3;
@@ -62,12 +63,20 @@
             caption-side: bottom;
             display: table-caption;
         }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: $border-radius;
+        }
     }
 
     table,
     .wp-block-table {
         border-collapse: collapse;
         width: 100%;
+        overflow-x: auto;
 
         td,
         th {

@@ -13,12 +13,11 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background: linear-gradient(rgba(#000, .2), rgba(#000, 0.4) 25%, rgba(#000, .8));
+            background: linear-gradient(rgba(#000, .4), rgba(#000, 0.4) 25%, rgba(#000, .8));
         }
 
         &.no-image {
             height: 150px;
-            // background-color: #eee;
             background: linear-gradient(transparent, rgba(#eee, 1));
 
             &::after {
@@ -39,21 +38,34 @@
             display: flex;
             flex-flow: column;
 
-            text-align: center;
+            text-align: start;
+            align-items: flex-start;
 
             margin-top: auto;
             margin-bottom: 2rem;
             z-index: 1;
 
+            .back-to {
+                margin-top: .5rem;
+                font-size: .8rem;
+                color: rgba(white, .6);
+                text-decoration: none;
+                span {
+                    font-size: .85em;
+                    margin-right: .25rem;
+                }
+            }
+
             .post-title {
                 color: white;
-                margin-bottom: .75rem;
+                margin-bottom: 1rem;
+                font-size: calc(1.375rem + .9vw);
             }
 
             .post-meta {
                 display: flex;
                 flex-flow: column;
-                align-items: center;
+                align-items: inherit;
                 font-size: 1rem;
 
                 .post-categories {
@@ -96,10 +108,11 @@
 
                 .post-date {
                     margin: 0;
-                    margin-bottom: 1.5rem;
+                    margin-bottom: 1rem;
                     order: -1;
                     color: white;
                     font-size: .9em;
+                    font-weight: 300;
                     letter-spacing: 0.4px;
                 }
             }
@@ -125,11 +138,14 @@
         .heading .container {
             text-align: left;
             align-items: flex-start;
-            margin-bottom: -.75rem;
-
-            .post-meta {
-                align-items: flex-start;
-                // font-size: 1.1rem;
+            margin-bottom: -1.25rem;
+            .back-to {
+                order: -1;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+            .post-date {
+                margin-bottom: 1.25rem;
             }
         }
     }

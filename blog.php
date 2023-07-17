@@ -97,7 +97,9 @@ include './partials/header.php';
                         $excerpt = $post['excerpt']['rendered'];
 
                         $img = get_post_featured_image($post);
-                        $img_src = $img ? $img['src'] : false;
+                        $img_src = $img ? $img['src_thumb'] : false;
+                        $img_src = $img['src_medium'] ?? $img_src;
+                        // if (strlen($title) > 40)
                         $img_alt = $title;
 
                         $categories = $post['category'];

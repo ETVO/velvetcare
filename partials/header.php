@@ -90,7 +90,7 @@ $GA_TRACKING_ID = 'G-JXHF9X3TYJ';
     <?php endif; ?>
 </head>
 
-<body class="<?= $body_class; ?>">
+<body class="<?= $body_class ?? ''; ?>">
 
     <header id="header">
         <nav class="navbar navbar-expand-lg">
