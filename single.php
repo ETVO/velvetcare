@@ -34,7 +34,7 @@ include './partials/header.php';
 
 <div class="single page">
     <?php if ($image) :
-        $src = $image['src'];
+        $src = $image['src_full'];
         $alt = $image['alt'];
         if ($alt == '') $alt = $title;
     endif;
