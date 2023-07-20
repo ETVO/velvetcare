@@ -41,6 +41,10 @@ include './partials/header.php';
     ?>
     <div class="heading <?= ($image) ? '' : 'no-image'; ?>" <?php if ($image) echo "style='background-image: url(\"$src\");'"; ?>>
         <div class="container">
+            <a class="back-to" href="/blog/">
+                <span class="bi-arrow-left"></span>
+                Voltar ao Blog
+            </a>
             <h1 class="post-title"><?php echo $title; ?></h1>
             <div class="post-meta">
                 <div class="post-categories">
@@ -55,10 +59,6 @@ include './partials/header.php';
                 
                 <div class="post-date"><?= $date; ?></div>
             </div>
-            <a class="back-to" href="/blog/">
-                <span class="bi-arrow-left"></span>
-                Voltar ao Blog
-            </a>
         </div>
     </div>
 
