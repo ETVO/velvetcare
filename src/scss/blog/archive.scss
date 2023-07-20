@@ -258,7 +258,6 @@ $border-radius: 5px;
     .blog {
         .posts-wrap {
             .post {
-                flex-flow: column;
                 .image {
                     img,
                     .placeholder-img {
@@ -286,12 +285,11 @@ $border-radius: 5px;
         .posts-wrap {
             .post {
                 .content {
+                    margin-top: -0.5rem;
                     padding: 0 1.25rem 1.5rem;
                     .meta {
                         flex-flow: column;
                         align-items: flex-start;
-                        margin-top: -0.7rem;
-                        // font-size: .8rem;
                         .separator {
                             display: none;
                         }
